@@ -4,37 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prefect_number
+namespace prime_numbers
 {
     class Program
     {
-        static bool IsPerfect(int number)
-        {
-            int sum = 0;
-            for(int i =1; i< number; i++)
-            {
-                if (number % i == 0) sum = sum + i; 
-            
-            }
-            if (sum == number) return true;
-            return false;
-        }
-
         static void Main(string[] args)
         {
-            int n1, n2;
-
-            Console.Write("enter the n1: ");
+            int n1, n2, x = 0;
+            Console.Write("enter n1: ");
             n1 = int.Parse(Console.ReadLine());
-            Console.Write("enter the n2: ");
+            Console.Write("enter n2: ");
             n2 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("\n");
-            for(int i =n1; i<=n2; i++)
+            for(int i =n1; i<n2; i++)
             {
-                if (IsPerfect(i)) Console.WriteLine(i);
+                for(int j = 1; j<n2; j++)
+                {
+                    if(i%j == 0)
+                    {
+                        x++;
+                    }
+                }
+
+                if (x == 2)
+                {
+                    Console.WriteLine(i);
+                }
+                x = 0;
 
             }
+
+
+
+
 
 
 
